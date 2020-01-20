@@ -17,8 +17,8 @@ class Member < ApplicationRecord
         @member_type = self.class.to_s  
     end 
 
-    def self.find_by_credentials(email, password) # returns the member or nil
-        member = self.class.find_by(email: email)
+    def self.find_by_credentials(email, password) 
+        member = self.find_by(email: email)
         return nil unless member
         member.is_password?(password) ? member : nil
       end
